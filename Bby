@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Baha</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffb6c1;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 80px;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 20px auto;
+      max-width: 600px;
+      line-height: 1.6;
+      animation: fadeIn 5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: fadeIn 6s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .surprise {
+      display: none;
+      font-size: 1.3em;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: floatUp 4s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -20px;
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="love_song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1>Happy Birthday, Baha!</h1>
+  <p>
+    You're the light of my life and the love of my heart.<br>
+    I’m so lucky to have you.<br>
+    May your day be filled with happiness, laughter, and love.<br>
+    I love you, Baha!
+  </p>
+
+  <button onclick="showSurprise()">Click Me</button>
+
+  <div class="surprise" id="surpriseMessage">
+    You're my everything, Baha. Today and always.  
+    <br>I can't wait to make more memories with you.  
+    <br>Forever yours.
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "0px";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+    function showSurprise() {
+      document.getElementById("surpriseMessage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
